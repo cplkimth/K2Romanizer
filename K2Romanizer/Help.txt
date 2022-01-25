@@ -1,0 +1,11 @@
+﻿k2r [케이싱] [원본]
+
+케이싱
+	p : 파스칼 (가처분 -> GaCheoBun)
+	c : 카멜 (가처분 -> gaCheoBun)
+	s : 스네이크 (가처분 -> ga_cheo_bun)
+	u : 대문자 (가처분 -> GACHEOBUN)
+	l : 소문자 (가처분 -> gacheobun)
+	n : 고유명사 (가처분 -> Gacheobun)
+
+ex) k2r p 가처분
