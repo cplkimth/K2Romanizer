@@ -17,8 +17,6 @@ public class Program
             return;
         }
 
-        CharConverter.Instance.Initialize();
-
         bool parsed = ParseCasing(args[0], out Casing casing);
         if (parsed is false)
         {
