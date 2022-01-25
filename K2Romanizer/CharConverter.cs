@@ -1,23 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-
-namespace K2Romanizer
+﻿namespace K2Romanizer
 {
     public class CharConverter
     {
         #region singleton
-        private static CharConverter _instance;
+        private static readonly Lazy<CharConverter> _instance = new(() => new CharConverter());
 
-        public static CharConverter Instance
-        {
-            get
-            {
-                if (_instance == null)
-                    _instance = new CharConverter();
-                return _instance;
-            }
-        }
+        public static CharConverter Instance => _instance.Value;
 
         private CharConverter()
         {
@@ -38,12 +26,10 @@ namespace K2Romanizer
 
             var duplicatedItems = new List<KeyValuePair<char, string>>();
             foreach (var userItem in userDictionary)
-            {
                 if (_dictionary.ContainsKey(userItem.Key))
                     duplicatedItems.Add(userItem);
                 else
                     _dictionary.Add(userItem.Key, userItem.Value);
-            }
 
             if (duplicatedItems.Count > 0)
             {
@@ -85,7 +71,7 @@ namespace K2Romanizer
             get
             {
                 int unicodeValue = Convert.ToInt32(key);
-                if (unicodeValue < 44032 || unicodeValue > 55203) //한글
+                if (unicodeValue is < 44032 or > 55203) //한글
                     return key.ToString();
 
                 if (_dictionary.ContainsKey(key) == false)

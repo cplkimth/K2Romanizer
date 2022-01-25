@@ -7,24 +7,16 @@ namespace K2Romanizer
     public class Romanizer
     {
         #region singleton
-        private static Romanizer _instance;
+        private static readonly Lazy<Romanizer> _instance = new(() => new Romanizer());
 
-        public static Romanizer Instance
-        {
-            get
-            {
-                if (_instance == null)
-                    _instance = new Romanizer();
-                return _instance;
-            }
-        }
+        public static Romanizer Instance => _instance.Value;
 
         private Romanizer()
         {
         }
         #endregion
 
-        public string Romanize(string source, Casing casing)
+        public static string Romanize(string source, Casing casing)
         {
             var builder = new StringBuilder();
 

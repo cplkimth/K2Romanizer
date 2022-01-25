@@ -7,9 +7,9 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        // #if DEBUG
-        // args = new []{"p", "가처분"};
-        // #endif
+        #if DEBUG
+        args = new []{"p", "가처분"};
+        #endif
 
         if (args.Length != 2)
         {
@@ -26,7 +26,7 @@ public class Program
             return;
         }
 
-        var target = Romanizer.Instance.Romanize(args[1], casing);
+        var target = Romanizer.Romanize(args[1], casing);
         Console.WriteLine($"{args[1]} => {target}");
 
         Console.WriteLine($"변환된 '{target}'을(를) 클립보드로 복사할까요? (Y/n)");
