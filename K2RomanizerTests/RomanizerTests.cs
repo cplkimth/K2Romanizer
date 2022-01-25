@@ -19,7 +19,7 @@ namespace K2Romanizer.Tests
         [ClassInitialize]
         public static void Initialize(TestContext context)
         {
-            CharConverter.Instance.Initialize(Path.Combine(Directory, "SystemData.txt"), Path.Combine(Directory, "UserData.txt"));
+            // CharConverter.Instance.Initialize(Path.Combine(Directory, "SystemData.txt"), Path.Combine(Directory, "UserData.txt"));
         }
 
         [TestMethod]
