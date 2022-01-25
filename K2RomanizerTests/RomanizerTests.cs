@@ -13,7 +13,7 @@ namespace K2Romanizer.Tests
         private static string Directory => System.OperatingSystem.IsWindows() switch
         {
             true => @"C:\git\K2Romanizer\K2Romanizer\bin\Debug\net6.0",
-            false => @""
+            false => "/home/thkim/git/K2Romanizer/K2Romanizer/bin/Debug/net6.0"
         };
 
         [ClassInitialize]
