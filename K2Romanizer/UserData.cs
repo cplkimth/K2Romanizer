@@ -1,32 +1,24 @@
-﻿using System.Collections.Generic;
-using System.IO;
+﻿#region
 using System.Text;
+#endregion
 
 namespace K2Romanizer
 {
     public class UserData
     {
         #region singleton
-        private static UserData _instance;
+        private static readonly Lazy<UserData> _instance = new(() => new UserData());
 
-        public static UserData Instance
-        {
-            get
-            {
-                if (_instance == null)
-                    _instance = new UserData();
-                return _instance;
-            }
-        }
+        public static UserData Instance => _instance.Value;
 
         private UserData()
         {
         }
         #endregion
 
-        private const string FileName = "UserData.txt";
+        public const string FileName = "UserData.txt";
 
-        private readonly List<KeyValuePair<char, string>> _items = new List<KeyValuePair<char, string>>();
+        private readonly List<KeyValuePair<char, string>> _items = new();
 
         public void Add(char key, string value)
         {

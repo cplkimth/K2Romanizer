@@ -9,9 +9,11 @@
 
         private CharConverter()
         {
-            _dictionary = ReadDataFile("SystemData.txt");
+            _dictionary = ReadDataFile(FileName);
         }
         #endregion
+
+        public const string FileName = "SystemData.txt";
 
         private readonly SortedDictionary<char, string> _dictionary;
 

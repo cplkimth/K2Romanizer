@@ -7,9 +7,9 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        #if DEBUG
-        args = new []{"p", "가처분"};
-        #endif
+#if DEBUG
+        args = new[] { "p", "가처분" };
+#endif
 
         if (args.Length != 2)
         {
@@ -28,14 +28,14 @@ public class Program
         Console.WriteLine($"{args[1]} => {target}");
 
         Console.WriteLine($"변환된 '{target}'을(를) 클립보드로 복사할까요? (Y/n)");
-        var no = Console.ReadLine().ToLower() == "n";
+        var copyable = Console.ReadLine().ToLower() != "n";
 
-        if (no is false)
-        {
-            Clipboard clipboard = new Clipboard();
-            clipboard.SetText(target);
-            Console.WriteLine("복사하였습니다.");
-        }
+        if (copyable is false)
+            return;
+
+        Clipboard clipboard = new Clipboard();
+        clipboard.SetText(target);
+        Console.WriteLine("복사하였습니다.");
     }
 
     private static bool ParseCasing(string arg, out Casing casing)
