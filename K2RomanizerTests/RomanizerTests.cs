@@ -10,16 +10,6 @@ namespace K2Romanizer.Tests
     {
         private const string Source = "가처분";
 
-        private static string Directory => System.OperatingSystem.IsWindows() switch
-        {
-            true => @"C:\git\K2Romanizer\K2Romanizer\bin\Debug\net6.0",
-            false => "/home/thkim/git/K2Romanizer/K2Romanizer/bin/Debug/net6.0"
-        };
-
-        private string SystemDataPath => Path.Combine(Directory, CharConverter.FileName);
-        
-        private string UserDataPath => Path.Combine(Directory, K2Romanizer.UserData.FileName);
-
         [ClassInitialize]
         public static void Initialize(TestContext context)
         {

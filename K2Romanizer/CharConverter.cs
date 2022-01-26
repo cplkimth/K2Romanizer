@@ -9,19 +9,18 @@
 
         private CharConverter()
         {
-            _dictionary = ReadDataFile(FileName);
+            _dictionary = ReadDataFile();
         }
         #endregion
 
-        public const string FileName = "SystemData.txt";
-
         private readonly SortedDictionary<char, string> _dictionary;
 
-        private SortedDictionary<char, string> ReadDataFile(string relativePath)
+        private SortedDictionary<char, string> ReadDataFile()
         {
             var dictionary = new SortedDictionary<char, string>();
 
-            var lines = File.ReadAllLines(relativePath);
+            var text = ResourceHelper.Instance.GetSystemData();
+            var lines = text.Replace(Environment.NewLine, "\n").Split('\n');
             foreach (var line in lines)
             {
                 var tokens = line.Split('\t');

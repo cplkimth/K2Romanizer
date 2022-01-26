@@ -3,14 +3,13 @@ using K2Romanizer;
 using TextCopy;
 #endregion
 
-public class Program
+public static class Program
 {
     public static void Main(string[] args)
     {
 #if DEBUG
-        args = new[] { "p", "가처분" };
+        args = new[] {"p", "가처분"};
 #endif
-
         if (args.Length != 2)
         {
             PrintHelp();
@@ -64,7 +63,6 @@ public class Program
 
     private static void PrintHelp()
     {
-        var text = File.ReadAllText("Help.txt");
-        Console.WriteLine(text);
+        Console.WriteLine(ResourceHelper.Instance.GetHelp());
     }
 }
