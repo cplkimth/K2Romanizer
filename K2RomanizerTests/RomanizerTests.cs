@@ -16,10 +16,13 @@ namespace K2Romanizer.Tests
             false => "/home/thkim/git/K2Romanizer/K2Romanizer/bin/Debug/net6.0"
         };
 
+        private string SystemDataPath => Path.Combine(Directory, CharConverter.FileName);
+        
+        private string UserDataPath => Path.Combine(Directory, K2Romanizer.UserData.FileName);
+
         [ClassInitialize]
         public static void Initialize(TestContext context)
         {
-            // CharConverter.Instance.Initialize(Path.Combine(Directory, "SystemData.txt"), Path.Combine(Directory, "UserData.txt"));
         }
 
         [TestMethod]
@@ -63,5 +66,16 @@ namespace K2Romanizer.Tests
             var target = Romanizer.Romanize(Source, Casing.Lower);
             Assert.AreEqual("gacheobun", target);
         }
+
+        // [TestMethod]
+        // public void UserData()
+        // {
+        //     var target = Romanizer.Romanize("가뚬똙나", Casing.Lower);
+        //
+        //     var text = File.ReadAllText(UserDataPath);
+        //
+        //     Assert.IsTrue(text.Contains("ddom"));
+        //     Assert.IsTrue(text.Contains("ddolg"));
+        // }
     }
 }

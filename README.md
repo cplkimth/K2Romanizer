@@ -22,3 +22,7 @@ ex) k2r p 가처분
 가처분 -> gacheobun
 ### 고유명사 (n)
 가처분 -> Gacheobun
+
+## 변환할 문자열을 클립보드로 복사
+리눅스에서 문자열을 클립보드로 복사하기 위해서는 xsel 모듈이 설치되어 있어야 합니다.
+`sudo apt-get install xsel`
